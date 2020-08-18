@@ -52,41 +52,7 @@
 * Function Definitions
 *******************************************************************************/
 
-// TODO: UPDATE AND COPY THESE FOR EACH NON_TRIVIAL FUNCTION
-/******************************************************************************
-* Function : Dio_Init()
-*//** 
-* \b Description:
-*
-* This function is used to initialize the Dio based on the configuration table
-*  defined in dio_cfg module.  
-*
-* PRE-CONDITION: Configuration table needs to populated (sizeof > 0)
-*
-* POST-CONDITION: A constant pointer to the first member of the configuration
-* table will be returned.
-*
-* @return 		A pointer to the configuration table.
-*
-* \b Example Example:
-* @code
-* 	const Dio_ConfigType *DioConfig = Dio_GetConfig();
-*
-* 	Dio_Init(DioConfig);
-* @endcode
-*
-* @see Dio_Init
-*
-* <br><b> - HISTORY OF CHANGES - </b>
-*  
-* <table align="left" style="width:800px">
-* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
-* <tr><td> 09/01/2015 </td><td> 0.5.0            </td><td> JWB      </td><td> Interface Created </td></tr>
-* </table><br><br>
-* <hr>
-*
-*******************************************************************************/
-
+/*!<Initialize Normal 7Segment(7 pins)*/
 void SEGEMENT7_voidNormInit(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode)
 {
     for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
@@ -110,6 +76,7 @@ void SEGEMENT7_voidNormInit(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode)
 		}
 }
 
+/*!<Initialize BCD 7Segment Drived BCD Decoder*/
 void SEGEMENT7_voidBcdInit(u8 copy_u8PinsArray[])
 {
     for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS;pin++)
@@ -123,6 +90,7 @@ void SEGEMENT7_voidBcdInit(u8 copy_u8PinsArray[])
   
 }
 
+/*!<Display Normal 7Segment(7 pins)*/
 void SEGEMENT7_voidNormDisplay(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode, SEGEMENT7_Number_t copy_Number)
 {
     u8 pinValue;
@@ -152,13 +120,14 @@ void SEGEMENT7_voidNormDisplay(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode
     }
 }
 
+/*!<Display BCD 7Segment Drived BCD Decoder*/
 void SEGEMENT7_voidBcdDisplay(u8 copy_u8PinsArray[], SEGEMENT7_NumberBcd_t copy_Number)
 {
     u8 pinValue;
     for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
     {
-		    GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
-	  }
+         GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
+    }
 		for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
      {
          pinValue = GET_BIT(copy_Number, pin);
