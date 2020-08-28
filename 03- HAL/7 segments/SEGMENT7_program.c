@@ -12,7 +12,7 @@
 /*************** SOURCE REVISION LOG *****************************************
 *
 *    Date    Version   Author          Description 
-*  04/01/15   1.0.0   Mohamed Hafez   Initial Release.
+*  17/08/20   1.0.0   Mohamed Hafez   Initial Release.
 *
 *******************************************************************************/
 /** @file SEGMENT7_program.c
@@ -52,7 +52,6 @@
 * Function Definitions
 *******************************************************************************/
 
-/*!<Initialize Normal 7Segment(7 pins)*/
 void SEGEMENT7_voidNormInit(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode)
 {
     for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
@@ -76,7 +75,6 @@ void SEGEMENT7_voidNormInit(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode)
 		}
 }
 
-/*!<Initialize BCD 7Segment Drived BCD Decoder*/
 void SEGEMENT7_voidBcdInit(u8 copy_u8PinsArray[])
 {
     for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS;pin++)
@@ -90,7 +88,6 @@ void SEGEMENT7_voidBcdInit(u8 copy_u8PinsArray[])
   
 }
 
-/*!<Display Normal 7Segment(7 pins)*/
 void SEGEMENT7_voidNormDisplay(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode, SEGEMENT7_Number_t copy_Number)
 {
     u8 pinValue;
@@ -120,14 +117,13 @@ void SEGEMENT7_voidNormDisplay(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode
     }
 }
 
-/*!<Display BCD 7Segment Drived BCD Decoder*/
 void SEGEMENT7_voidBcdDisplay(u8 copy_u8PinsArray[], SEGEMENT7_NumberBcd_t copy_Number)
 {
     u8 pinValue;
     for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
     {
-         GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
-    }
+		    GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
+	  }
 		for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
      {
          pinValue = GET_BIT(copy_Number, pin);
