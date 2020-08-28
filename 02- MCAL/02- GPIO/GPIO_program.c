@@ -12,7 +12,7 @@
 /*************** SOURCE REVISION LOG *****************************************
 *
 *    Date    Version   Author          Description 
-*  04/01/15   1.0.0   Mohamed Hafez   Initial Release.
+*  10/08/20   1.0.0   Mohamed Hafez   Initial Release.
 *
 *******************************************************************************/
 /** @file GPIO_program.c
@@ -51,7 +51,6 @@
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
-
 
 
 void GPIO_voidSetPinMode (GPIO_PinId_t copy_u8PinId , GPIO_PIN_MODE copy_u8Mode)
@@ -241,6 +240,67 @@ u8 GPIO_u8GetPinValue (GPIO_PinId_t copy_u8PinId)
     return u8_value;
 }
 
+u8 GPIO_u8ChoosePullMode(GPIO_PinId_t copy_u8PinId, GPIO_PULL_MODE_t Copy_Mode)
+{
+    GPIO_PortId_t copy_u8PortId;
+    if(copy_u8PinId >= GPIO_PORTA_ENTRY && copy_u8PinId <= GPIO_PORTA_END)
+    {
+        copy_u8PortId = PORTA;
+    }
+    else if(copy_u8PinId >= GPIO_PORTB_ENTRY && copy_u8PinId <= GPIO_PORTB_END)
+    {
+        copy_u8PortId = PORTB;
+        copy_u8PinId -= GPIO_ADJUST_PORTB_PIN;
+    }
+    else if(copy_u8PinId >= GPIO_PORTC_ENTRY && copy_u8PinId <= GPIO_PORTC_END)
+    {
+        copy_u8PortId = PORTC;
+        copy_u8PinId -= GPIO_ADJUST_PORTC_PIN;
+    }
+    else
+    {
+        /*!<TODO: Error Codes*/
+    }
+    if(copy_u8PinId <= GPIO_PORT_END)
+    {
+        switch(copy_u8PortId)
+        {
+            case PORTA :
+                switch(Copy_Mode)
+                {
+                    case GPIO_PULL_DOWN : CLR_BIT(GPIOA_ODR, copy_u8PinId);break;
+                    case GPIO_PULL_UP   : SET_BIT(GPIOA_ODR, copy_u8PinId);break;
+                    default : /*!<TODO: Error Code*/break;
+                }
+            break;
+            case PORTB :
+                switch(Copy_Mode)
+                {
+                    case GPIO_PULL_DOWN : CLR_BIT(GPIOB_ODR, copy_u8PinId);break;
+                    case GPIO_PULL_UP   : SET_BIT(GPIOB_ODR, copy_u8PinId);break;
+                    default : /*!<TODO: Error Code*/break;
+                }
+            break;
+            case PORTC :
+                switch(Copy_Mode)
+                {
+                    case GPIO_PULL_DOWN : CLR_BIT(GPIOC_ODR, copy_u8PinId);break;
+                    case GPIO_PULL_UP   : SET_BIT(GPIOC_ODR, copy_u8PinId);break;
+                    default : /*!<TODO: Error Code*/break;
+                }
+            break;
+            default :
+                /*TODO: Error Codes*/
+            break;
+        }
+    }
+    else
+    {
+        /*TODO: Error Codes*/
+    }
+
+}
+
 void GPIO_voidTogPinValue (GPIO_PinId_t copy_u8PinId)
 {
     GPIO_PortId_t copy_u8PortId;
@@ -286,7 +346,7 @@ void GPIO_voidTogPinValue (GPIO_PinId_t copy_u8PinId)
     }
 }
 
-void GPIO_voidSetPortMode (u8 copy_u8StPin, u8 copy_u8EdPin, GPIO_PIN_MODE copy_u8Mode)
+void GPIO_voidSetPortMode (GPIO_PinId_t copy_u8StPin, GPIO_PinId_t copy_u8EdPin, GPIO_PIN_MODE copy_u8Mode)
 {
 	for (GPIO_PinId_t pins = copy_u8StPin ;pins <= copy_u8EdPin ;pins++)
     {
@@ -320,11 +380,13 @@ void GPIO_voidSetClrPinsValue (GPIO_PortId_t copy_u8PortId, u32 copy_u32Value)
     {
          case PORTA :
             GPIOA_BSR = copy_u32Value;
+				 break;
          case PORTB :
             GPIOB_BSR = copy_u32Value;    
         break;
         case PORTC :
-           GPIOC_BSR = copy_u32Value;     
+           GPIOC_BSR = copy_u32Value;
+        break;				
         default : 
             /*TODO: Error Codes*/
         break;
@@ -342,7 +404,8 @@ void GPIO_voidSetPinsValue (GPIO_PortId_t copy_u8PortId, u16 copy_u16Value)
            GPIOB_BSR = copy_u16Value;    
         break;
         case PORTC :
-           GPIOC_BSR = copy_u16Value;     
+           GPIOC_BSR = copy_u16Value;
+        break;				
         default    : 
             /*TODO: Error Codes*/
         break;
@@ -360,7 +423,8 @@ void GPIO_voidClrPinsValue (GPIO_PortId_t copy_u8PortId, u16 copy_u16Value)
            GPIOB_BRR = copy_u16Value;    
         break;
         case PORTC :
-           GPIOC_BRR = copy_u16Value;     
+           GPIOC_BRR = copy_u16Value; 
+        break;				
         default    : 
             /*TODO: Error Codes*/
         break;
@@ -426,7 +490,8 @@ u8 GPIO_u8LockBitConfig(GPIO_PinId_t copy_u8PinId)
            LCKKValue = GET_BIT(GPIOC_LCK, GPIO_LCK_LCKK);
            LCKKValue = GET_BIT(GPIOC_LCK, GPIO_LCK_LCKK);
 
-           LCKValue = GET_BIT(GPIOC_LCK, copy_u8PinId);       
+           LCKValue = GET_BIT(GPIOC_LCK, copy_u8PinId);
+           break;				
         default    : 
             /*TODO: Error Codes*/
         break;

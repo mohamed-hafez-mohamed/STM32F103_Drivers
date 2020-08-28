@@ -16,7 +16,7 @@
 /*************** INTERFACE CHANGE LIST **************************************
 *
 *    Date    Version   Author          Description 
-*  04/01/15   1.0.0   Mohamed Hafez   Interface Created.
+*  10/08/20   1.0.0   Mohamed Hafez   Interface Created.
 *
 *****************************************************************************/
 /** @file  GPIO_private.h
