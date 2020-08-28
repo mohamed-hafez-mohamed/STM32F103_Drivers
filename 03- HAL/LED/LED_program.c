@@ -72,20 +72,20 @@ void LED_voidTogLed(GPIO_PinId_t copy_u8PinId)
 {
     GPIO_voidSetPinValue(copy_u8PinId, HIGH);
     for(u16 i =0;i < 1000;i++)
-		  {  
-			for(u16 j =0;j < 1000;j++)
-			{
-		              __asm("NOP");
-			}
-		  }
+	{  
+	    for(u16 j =0;j < 1000;j++)
+	    {
+		 __asm("NOP");
+	    }
+	}
     GPIO_voidSetPinValue(copy_u8PinId, LOW);
     for(u16 i =0;i < 1000;i++)
-		  {  
-		      for(u16 j =0;j < 1000;j++)
-		      {
-			     __asm("NOP");
-		      }
-		  }
+    {  
+	 for(u16 j =0;j < 1000;j++)
+         {
+	         __asm("NOP");
+         }
+    }
 }
 
 /*************** END OF FUNCTIONS ***************************************************************************/
