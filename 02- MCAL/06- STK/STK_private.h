@@ -50,6 +50,7 @@ typedef struct
 #define STK_GENERATE_1_MS      1000
 #define STK_GENERATE_1_US      1000000
 #define STK_SUB_1_FOR_PERIODIC 1
+#define STK_DIVIDE_AHP_BY_8    8
 /******************************************************************************
 * Configuration Constants
 *******************************************************************************/

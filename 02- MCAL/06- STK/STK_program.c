@@ -56,7 +56,7 @@ static u16 STK_u16ConfigIntervalMs(void)
 {
     u32 Local_u32Clock;
     #if   STK_CLOCK_SOURCE == STK_AHB_CLOCK_SOURCE_DIV_8
-        Local_u32Clock = AHP_CLOCK_FREQ / 8;
+        Local_u32Clock = AHP_CLOCK_FREQ / STK_DIVIDE_AHP_BY_8;
     #elif STK_CLOCK_SOURCE == STK_AHB_CLOCK_SOURCE_DIV_8
         Local_u32Clock = AHP_CLOCK_FREQ;
     #else
@@ -69,7 +69,7 @@ static u8 STK_u8ConfigIntervalUs(void)
 {
     u32 Local_u32Clock;
     #if   STK_CLOCK_SOURCE == STK_AHB_CLOCK_SOURCE_DIV_8
-        Local_u32Clock = AHP_CLOCK_FREQ / 8;
+        Local_u32Clock = AHP_CLOCK_FREQ / STK_DIVIDE_AHP_BY_8;
     #elif STK_CLOCK_SOURCE == STK_AHB_CLOCK_SOURCE_DIV_8
         Local_u32Clock = AHP_CLOCK_FREQ;
     #else
