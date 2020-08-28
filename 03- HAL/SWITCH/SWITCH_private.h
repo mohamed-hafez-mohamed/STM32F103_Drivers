@@ -2,7 +2,7 @@
 * Title                 :   SWITCH   
 * Filename              :   SWITCH_private.h
 * Author                :   Mohamed Hafez
-* Origin Date           :   10/08/2020
+* Origin Date           :   17/08/2020
 * Version               :   1.0.0
 * Compiler              :   TODO: COMPILER GOES HERE
 * Target                :   TODO: MCU GOES HERE
@@ -16,7 +16,7 @@
 /*************** INTERFACE CHANGE LIST **************************************
 *
 *    Date    Version   Author          Description 
-*  04/01/15   1.0.0   Mohamed Hafez   Interface Created.
+*  17/08/20   1.0.0   Mohamed Hafez   Interface Created.
 *
 *****************************************************************************/
 /** @file  SWITCH_private.h
