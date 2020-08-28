@@ -2,7 +2,7 @@
 * Title                 :   STK 
 * Filename              :   STK_program.c
 * Author                :   Mohamed Hafez
-* Origin Date           :   10/8/2020
+* Origin Date           :   26/8/2020
 * Version               :   1.0.0
 * Compiler              :   TODO: COMPILER GOES HERE
 * Target                :   TODO: MCU GOES HERE
@@ -12,7 +12,7 @@
 /*************** SOURCE REVISION LOG *****************************************
 *
 *    Date    Version   Author          Description 
-*  04/01/20   1.0.0   Mohamed Hafez   Initial Release.
+*  26/08/20   1.0.0   Mohamed Hafez   Initial Release.
 *
 *******************************************************************************/
 /** @file STK_program.c
@@ -52,7 +52,7 @@ static void * ParameterCallBack;
 /******************************************************************************
 * Function Definitions
 *******************************************************************************/
-u16 STK_u16ConfigIntervalMs(void)
+static u16 STK_u16ConfigIntervalMs(void)
 {
     u32 Local_u32Clock;
     #if   STK_CLOCK_SOURCE == STK_AHB_CLOCK_SOURCE_DIV_8
@@ -65,7 +65,7 @@ u16 STK_u16ConfigIntervalMs(void)
     return Local_u32Clock / STK_GENERATE_1_MS;
 }
 
-u8 STK_u8ConfigIntervalUs(void)
+static u8 STK_u8ConfigIntervalUs(void)
 {
     u32 Local_u32Clock;
     #if   STK_CLOCK_SOURCE == STK_AHB_CLOCK_SOURCE_DIV_8

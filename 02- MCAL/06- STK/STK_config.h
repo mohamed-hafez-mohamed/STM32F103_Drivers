@@ -2,7 +2,7 @@
 * Title                 :   STK   
 * Filename              :   STK_config.h
 * Author                :   Mohamed Hafez
-* Origin Date           :   10/08/2020
+* Origin Date           :   26/08/2020
 * Version               :   1.0.0
 * Compiler              :   TODO: COMPILER GOES HERE
 * Target                :   TODO: MCU GOES HERE
@@ -16,7 +16,7 @@
 /*************** INTERFACE CHANGE LIST **************************************
 *
 *    Date    Version   Author          Description 
-*  10/8/20   1.0.0   Mohamed Hafez   Interface Created.
+*  26/8/20   1.0.0   Mohamed Hafez   Interface Created.
 *
 *****************************************************************************/
 /** @file  STK_STK_config.h
@@ -40,16 +40,15 @@
 * Configuration Constants
 *******************************************************************************/
 
+/*Chooce the AHP Frequency*/
+#define AHP_CLOCK_FREQ (8000000UL)
+
 /* Choose The Clock Source
 STK_AHB_CLOCK_SOURCE_DIV_8 0x00000000
 STK_AHB_CLOCK_SOURCE       0x00000004
 */
 #define STK_CLOCK_SOURCE    STK_AHB_CLOCK_SOURCE_DIV_8
 
-/*
-Chooce the AHP Frequency
-*/
-#define AHP_CLOCK_FREQ (8000000UL)
 #endif /*File_H_*/
 
 /*** End of File **************************************************************/
