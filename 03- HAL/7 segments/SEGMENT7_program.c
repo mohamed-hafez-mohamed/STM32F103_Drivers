@@ -56,35 +56,35 @@ void SEGEMENT7_voidNormInit(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode)
 {
     for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
     {
-		GPIO_voidSetPinMode(copy_u8PinsArray[pin], SEGMENT7_PIN_MODE);
-	  }
-		switch(copy_Mode)
+	GPIO_voidSetPinMode(copy_u8PinsArray[pin], SEGMENT7_PIN_MODE);
+    }
+    switch(copy_Mode)
     {
         case COMMON_CATHODE :
-					for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
-          {
-		          GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
-	        }
+	   for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
+           {
+	        GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
+	   }
         break;
         case COMMON_ANODE :
-					   for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
-          {
-		          GPIO_voidSetPinValue(copy_u8PinsArray[pin], HIGH);
-	        }
+	   for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
+           {
+	        GPIO_voidSetPinValue(copy_u8PinsArray[pin], HIGH);
+	   }
         break;				
-		}
+    }
 }
 
 void SEGEMENT7_voidBcdInit(u8 copy_u8PinsArray[])
 {
     for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS;pin++)
     {
-		     GPIO_voidSetPinMode(copy_u8PinsArray[pin], SEGMENT7_PIN_MODE);
-	  }
-		for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
+          GPIO_voidSetPinMode(copy_u8PinsArray[pin], SEGMENT7_PIN_MODE);
+    }
+    for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
     {
-		     GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
-	  }
+          GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
+    }
   
 }
 
@@ -93,23 +93,23 @@ void SEGEMENT7_voidNormDisplay(u8 copy_u8PinsArray[], SEGEMENT7_Mode_t copy_Mode
     u8 pinValue;
     for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
     {
-		GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
-	  }
+         GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
+    }
     switch(copy_Mode)
     {
         case COMMON_CATHODE :    
-	       for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
+	   for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
            {
                pinValue = GET_BIT(copy_Number, pin);
-		           GPIO_voidSetPinValue(copy_u8PinsArray[pin], pinValue);
-	         }
+	       GPIO_voidSetPinValue(copy_u8PinsArray[pin], pinValue);
+	   }
         break;				
         case COMMON_ANODE   :
-			for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
+	   for (u8 pin = 0 ;pin < SEGMENT7_SEG_PINS ;pin++)
            {
                pinValue = GET_BIT(copy_Number, pin);
-		           GPIO_voidSetPinValue(copy_u8PinsArray[pin], !pinValue);
-	         }		 
+	       GPIO_voidSetPinValue(copy_u8PinsArray[pin], !pinValue);
+	   }		 
         break;
         default :
         /*!<TODO: Error Codes*/
@@ -122,13 +122,13 @@ void SEGEMENT7_voidBcdDisplay(u8 copy_u8PinsArray[], SEGEMENT7_NumberBcd_t copy_
     u8 pinValue;
     for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
     {
-		    GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
-	  }
-		for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
-     {
+        GPIO_voidSetPinValue(copy_u8PinsArray[pin], LOW);
+    }
+    for (u8 pin = 0 ;pin < SEGMENT7_BCD_PINS ;pin++)
+    {
          pinValue = GET_BIT(copy_Number, pin);
-		     GPIO_voidSetPinValue(copy_u8PinsArray[pin], pinValue); 
-     }
+         GPIO_voidSetPinValue(copy_u8PinsArray[pin], pinValue); 
+    }
 }
 
 
