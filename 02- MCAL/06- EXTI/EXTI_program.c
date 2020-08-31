@@ -172,67 +172,83 @@ u8 EXTI_u8InitISRWithFunction(u8 Copy_Index, EXTI_InterruptId_t Copy_ExtiId[], E
 void EXTI0_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI0_ID](EXTI_PtrParameter[EXTI0_ID]);
+    //SET_BIT(EXTI->PR, EXTI0_ID);
 }
 
 void EXTI1_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI1_ID](EXTI_PtrParameter[EXTI1_ID]);
+    //SET_BIT(EXTI->PR, EXTI1_ID);
 }
 void EXTI2_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI2_ID](EXTI_PtrParameter[EXTI2_ID]);
+    SET_BIT(EXTI->PR, EXTI2_ID);
 }
 void EXTI3_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI3_ID](EXTI_PtrParameter[EXTI3_ID]);
+    SET_BIT(EXTI->PR, EXTI3_ID);
 }
 void EXTI4_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI4_ID](EXTI_PtrParameter[EXTI4_ID]);
+    SET_BIT(EXTI->PR, EXTI4_ID);
 }
 void EXTI5_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI5_ID](EXTI_PtrParameter[EXTI5_ID]);
+    SET_BIT(EXTI->PR, EXTI5_ID);
 }
 void EXTI6_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI6_ID](EXTI_PtrParameter[EXTI6_ID]);
+    SET_BIT(EXTI->PR, EXTI6_ID);
 }
 void EXTI7_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI7_ID](EXTI_PtrParameter[EXTI7_ID]);
+    SET_BIT(EXTI->PR, EXTI7_ID);
 }
 void EXTI8_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI8_ID](EXTI_PtrParameter[EXTI8_ID]);
+    SET_BIT(EXTI->PR, EXTI8_ID);
 }
 void EXTI9_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI9_ID](EXTI_PtrParameter[EXTI9_ID]);
+    SET_BIT(EXTI->PR, EXTI9_ID);
 }
 void EXTI10_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI10_ID](EXTI_PtrParameter[EXTI11_ID]);
+    SET_BIT(EXTI->PR, EXTI10_ID);
 }
 void EXTI11_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI11_ID](EXTI_PtrParameter[EXTI11_ID]);
+    SET_BIT(EXTI->PR, EXTI11_ID);
 }
 void EXTI12_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI12_ID](EXTI_PtrParameter[EXTI12_ID]);
+    SET_BIT(EXTI->PR, EXTI12_ID);
 }
 void EXTI13_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI13_ID](EXTI_PtrParameter[EXTI13_ID]);
+    SET_BIT(EXTI->PR, EXTI13_ID);
 }
 void EXTI14_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI14_ID](EXTI_PtrParameter[EXTI14_ID]);
+    SET_BIT(EXTI->PR, EXTI14_ID);
 }
 void EXTI15_IRQHandler(void)
 {
     EXTI_PtrFunction[EXTI15_ID](EXTI_PtrParameter[EXTI15_ID]);
+    SET_BIT(EXTI->PR, EXTI15_ID);
 }
 
 /*************** END OF FUNCTIONS ***************************************************************************/

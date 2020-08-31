@@ -2,7 +2,7 @@
 * Title                 :   EXTI   
 * Filename              :   EXTI_private.h
 * Author                :   Mohamed Hafez
-* Origin Date           :   25/08/2020
+* Origin Date           :   10/08/2020
 * Version               :   1.0.0
 * Compiler              :   TODO: COMPILER GOES HERE
 * Target                :   TODO: MCU GOES HERE
@@ -16,7 +16,7 @@
 /*************** INTERFACE CHANGE LIST **************************************
 *
 *    Date    Version   Author          Description 
-*  25/08/20   1.0.0   Mohamed Hafez   Interface Created.
+*  04/01/15   1.0.0   Mohamed Hafez   Interface Created.
 *
 *****************************************************************************/
 /** @file  EXTI_private.h
