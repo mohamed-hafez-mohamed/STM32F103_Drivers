@@ -60,7 +60,7 @@ void SCHEDULER_voidInitScheduler(Queue_t * Copy_PtrQueue)
     Copy_PtrQueue->Queue_Rear  = NULL;
     Copy_PtrQueue->Queue_Size  = 0;
     MSTK_voidInit();
-    MSTK_voidSetIntervalSingle_ms(200, &SCHEDULER_voidUpdateScheduler, (void *)(&ReadyQueue)); 
+    MSTK_voidSetIntervalSingle_ms(1, &SCHEDULER_voidUpdateScheduler, (void *)(&ReadyQueue)); 
 }
 
 void SCHEDULER_voidStartScheduler(void)
