@@ -75,7 +75,7 @@ int main()
 	GPIO_voidSetPinMode(PINA2,GPIO_OUTPUT_10M_PULL_UP_DN);
 	
 	SCHEDULER_voidInitScheduler(&ReadyQueue);
-  SCHEDULER_u16CreateTask(&ledtog,0,1,0,NULL);
+  SCHEDULER_u16CreateTask(&ledtog,0,500,0,NULL);
   SCHEDULER_voidStartScheduler();
   
   while(1)
