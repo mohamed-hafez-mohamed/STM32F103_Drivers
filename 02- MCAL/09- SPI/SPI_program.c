@@ -69,9 +69,7 @@ void MSPI_voidInit(void)
 {
     #if    NUMBER_OF_SPI_USED == SPI_1_USED
     #if  SPI_1_MODE == SPI_MODE_MASTER
-    //MGPIO_voidSetPinMode(SPI_1_MOSI_PIN, GPIO_OUTPUT_10M_PULL_UP_DN);
     MGPIO_voidSetPinMode(SPI_1_MISO_PIN, GPIO_INPUT_FLOATING);
-    //MGPIO_voidSetPinMode(SPI_1_CLK_PIN,  GPIO_OUTPUT_10M_PULL_UP_DN);
     for(u8 Local_u8Counter = 0;Local_u8Counter < SPI_1_NUMBER_OF_SLAVES; Local_u8Counter++)
     {
         MGPIO_voidSetPinMode(SPI1_SelectSlavePins[Local_u8Counter], GPIO_OUTPUT_10M_PULL_UP_DN);
@@ -81,10 +79,11 @@ void MSPI_voidInit(void)
         MGPIO_voidSetPinValue(SPI1_SelectSlavePins[Local_u8Counter], HIGH);
     }
     #elif SPI_1_MODE == SPI_MODE_SLAVE
-    MGPIO_voidSetPinMode(SPI_1_MOSI_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_1_MISO_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
-    MGPIO_voidSetPinMode(SPI_1_CLK_PIN,  GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_1_NSS_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_1_MOSI_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_1_MISO_PIN,  GPIO_OUTPUT_50M_PULL_UP_DN);
+    MGPIO_voidSetPinMode(SPI_1_CLK_PIN,   GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_1_NSS_PIN,   GPIO_INPUT_PULL_UP_DN);
+	  MGPIO_u8ChoosePullMode(SPI_1_NSS_PIN, GPIO_PULL_UP);
     #endif
     /*Reg Configuratio*/
     SPI1->CR1 = CLR_REGISTER;
@@ -101,9 +100,7 @@ void MSPI_voidInit(void)
 
     #elif  NUMBER_OF_SPI_USED == SPI_2_USED
     #if  SPI_2_MODE == SPI_MODE_MASTER
-    MGPIO_voidSetPinMode(SPI_2_MOSI_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
     MGPIO_voidSetPinMode(SPI_2_MISO_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_2_CLK_PIN,  GPIO_OUTPUT_10M_PULL_UP_DN);
     for(u8 Local_u8Counter = 0;Local_u8Counter < SPI_2_NUMBER_OF_SLAVES; Local_u8Counter++)
     {
         MGPIO_voidSetPinMode(SPI2_SelectSlavePins[Local_u8Counter], GPIO_OUTPUT_10M_PULL_UP_DN);
@@ -113,10 +110,11 @@ void MSPI_voidInit(void)
         MGPIO_voidSetPinValue(SPI2_SelectSlavePins[Local_u8Counter], HIGH);
     }
     #elif SPI_2_MODE == SPI_MODE_SLAVE
-    MGPIO_voidSetPinMode(SPI_2_MOSI_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_2_MISO_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
-    MGPIO_voidSetPinMode(SPI_2_CLK_PIN,  GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_2_NSS_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_2_MOSI_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_2_MISO_PIN,  GPIO_OUTPUT_50M_PULL_UP_DN);
+    MGPIO_voidSetPinMode(SPI_2_CLK_PIN,   GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_2_NSS_PIN,   GPIO_INPUT_PULL_UP_DN);
+	  MGPIO_u8ChoosePullMode(SPI_2_NSS_PIN, GPIO_PULL_UP);
     #endif
     /*Reg Configuratio*/
     SPI2->CR1 = CLR_REGISTER;
@@ -133,40 +131,38 @@ void MSPI_voidInit(void)
 
     #elif  NUMBER_OF_SPI_USED == ALL_SPI_USED
      #if  SPI_1_MODE == SPI_MODE_MASTER
-    MGPIO_voidSetPinMode(SPI_1_MOSI_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
     MGPIO_voidSetPinMode(SPI_1_MISO_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_1_CLK_PIN,  GPIO_OUTPUT_10M_PULL_UP_DN);
     for(u8 Local_u8Counter = 0;Local_u8Counter < SPI_1_NUMBER_OF_SLAVES; Local_u8Counter++)
     {
-        MGPIO_voidSetPinMode(SPI1_SelectSlavePins[Local_u8Counter], GPIO_OUTPUT_2M_PULL_UP_DN);
+        MGPIO_voidSetPinMode(SPI1_SelectSlavePins[Local_u8Counter], GPIO_OUTPUT_10M_PULL_UP_DN);
     }
 		for(u8 Local_u8Counter = 0;Local_u8Counter < SPI_1_NUMBER_OF_SLAVES; Local_u8Counter++)
     {
         MGPIO_voidSetPinValue(SPI1_SelectSlavePins[Local_u8Counter], HIGH);
     }
     #elif SPI_1_MODE == SPI_MODE_SLAVE
-    MGPIO_voidSetPinMode(SPI_1_MOSI_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_1_MISO_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
-    MGPIO_voidSetPinMode(SPI_1_CLK_PIN,  GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_1_NSS_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_1_MOSI_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_1_MISO_PIN,  GPIO_OUTPUT_50M_PULL_UP_DN);
+    MGPIO_voidSetPinMode(SPI_1_CLK_PIN,   GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_1_NSS_PIN,   GPIO_INPUT_PULL_UP_DN);
+	  MGPIO_u8ChoosePullMode(SPI_1_NSS_PIN, GPIO_PULL_UP);
     #endif
     #if  SPI_2_MODE == SPI_MODE_MASTER
-    MGPIO_voidSetPinMode(SPI_2_MOSI_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
     MGPIO_voidSetPinMode(SPI_2_MISO_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_2_CLK_PIN,  GPIO_OUTPUT_10M_PULL_UP_DN);
     for(u8 Local_u8Counter = 0;Local_u8Counter < SPI_2_NUMBER_OF_SLAVES; Local_u8Counter++)
     {
-        MGPIO_voidSetPinMode(SPI2_SelectSlavePins[Local_u8Counter], GPIO_OUTPUT_2M_PULL_UP_DN);
+        MGPIO_voidSetPinMode(SPI2_SelectSlavePins[Local_u8Counter], GPIO_OUTPUT_10M_PULL_UP_DN);
     }
 		for(u8 Local_u8Counter = 0;Local_u8Counter < SPI_2_NUMBER_OF_SLAVES; Local_u8Counter++)
     {
         MGPIO_voidSetPinValue(SPI2_SelectSlavePins[Local_u8Counter], HIGH);
     }
     #elif SPI_2_MODE == SPI_MODE_SLAVE
-    MGPIO_voidSetPinMode(SPI_2_MOSI_PIN, GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_2_MISO_PIN, GPIO_OUTPUT_50M_PULL_UP_DN);
-    MGPIO_voidSetPinMode(SPI_2_CLK_PIN,  GPIO_INPUT_FLOATING);
-    MGPIO_voidSetPinMode(SPI_2_NSS_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_2_MOSI_PIN,  GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_2_MISO_PIN,  GPIO_OUTPUT_50M_PULL_UP_DN);
+    MGPIO_voidSetPinMode(SPI_2_CLK_PIN,   GPIO_INPUT_FLOATING);
+    MGPIO_voidSetPinMode(SPI_2_NSS_PIN,   GPIO_INPUT_PULL_UP_DN);
+	  MGPIO_u8ChoosePullMode(SPI_2_NSS_PIN, GPIO_PULL_UP);
     #endif
     /*Reg Configuratio*/
     SPI1->CR1 = CLR_REGISTER;
