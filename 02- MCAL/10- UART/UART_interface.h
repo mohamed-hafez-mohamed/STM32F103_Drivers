@@ -35,13 +35,14 @@
 /******************************************************************************
 * Preprocessor Constants
 *******************************************************************************/
+//UART Characterstics
 #define UART_NUMBER_OF_CHANNELS    5
 #define UART_1                     0
 #define UART_2                     1
 #define UART_3                     2
 #define UART_4                     3
 #define UART_5                     4
-
+//UART Pins
 #define UART_1_TX                  PINA9
 #define UART_1_RX                  PINA10
 #define UART_2_TX                  PINA2
@@ -69,12 +70,11 @@
 * Function Prototypes
 *******************************************************************************/
 void MUART_voidInit(u8 Copy_u8UartNumber);
-
 void MUART_voidTransmitSynch(u8 Copy_u8UartNumber, u8 Copy_u8DataArray[]);
+u8   MUART_u8ReceiveByteSynch(u8 Copy_u8UartNumber);
+u8   MUART_u8ReceiveSynch(u8 Copy_u8UartNumber, u8 * Copy_u8Data);
+void MUART_voidReceiveASynch(u8 Copy_u8UartNumber, void (*CallBackFuncRx)(u8));
 
-u8   MUART_u8ReceiveSynch(u8 Copy_u8UartNumber);
-
-void MUART_u8ReceiveASynch(u8 Copy_u8UartNumber, void (*CallBackFuncRx)(u8 ));
 #endif /*File_H_*/
 
 /*** End of File **************************************************************/

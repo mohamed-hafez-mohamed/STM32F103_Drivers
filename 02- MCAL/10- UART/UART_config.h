@@ -70,13 +70,12 @@
 #define UART_BAUDRATE_9600_CLK_8M       0X0341
 #define UART_BAUDRATE_19200_CLK_8M      0X01A1
 
-#define UART_BAUDRATE          UART_BAUDRATE_9600_CLK_1M
+#define UART_BAUDRATE                   UART_BAUDRATE_9600_CLK_1M
 /******************************************************************************
 * Configuration Constants
 *******************************************************************************/
 
 //UART Configuration
-
 /**
  * CR1 Register Configuration
  * SBK: Send break
@@ -143,8 +142,7 @@
  * byte transfer in order to reduce power consumption. This bit is set and cleared by software.
  * 0: USART prescaler and outputs disabled
  * 1: USART enabled
- * */
-
+ */
 #define SEND_BREAK                          DISABLE
 #define RECEIVER_WAKEUP                     DISABLE
 #define RECEIVER_ENABLE                     ENABLE
@@ -157,8 +155,7 @@
 #define PARITY_SELECTION                    DISABLE
 #define PARITY_CONTROL                      DISABLE
 #define WAKEUP_METHOD                       DISABLE
-#define WORD_LENGTH                         WORD_8_BITS
-#define UART_ENABLE                         ENABLE_UART 
+#define WORD_LENGTH                         WORD_8_BITS                          
 
 /**
  * CR2 Register Configuration
@@ -209,8 +206,7 @@
  * 1: LIN mode enabled
  * The LIN mode enables the capability to send LIN Synch Breaks (13 low bits) using the SBK
  * bit in the USART_CR1 register, and to detect LIN Sync breaks.
- * */
-
+ */
 #define NODE_ADDRESS                 DISABLE
 #define LIN_BREAK_DETEC_LENGTH       DISABLE
 #define LIN_BREAK_DETEC_INTERRUPT    DISABLE_INTERRUPT
@@ -220,7 +216,6 @@
 #define CLOCK_PIN_ENABLE             DISABLE
 #define STOP_BIT_NUMBER              STOB_1_BITS
 #define LIN_MODE                     DISABLE
-
 /**
  * CR3 Register Configuration
  * EIE: Error interrupt enable
@@ -278,8 +273,7 @@
  * 0: Interrupt is inhibited
  * 1: An interrupt is generated whenever CTS=1 in the USART_SR register
  * This bit is not available for UART4 & UART5.
- * */
-
+ */
 #define ERROR_INTERRUPT           DISABLE_INTERRUPT
 #define IRDA_MODE                 DISABLE
 #define IRDA_LOW_POWER            DISABLE
