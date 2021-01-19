@@ -73,6 +73,8 @@ u32  MSTK_u32GetElapsedTime_ms(void);
 u32  MSTK_u32GetRemainingTime_us(void);
 u32  MSTK_u32GetRemainingTime_ms(void);
 
+u32  MSTK_u32ReturnElapsedTicks(void);
+void MSTK_voidDelayUsingInterrupt(u16 Copy_u16DelayMs);
 
 #endif /*File_H_*/
 

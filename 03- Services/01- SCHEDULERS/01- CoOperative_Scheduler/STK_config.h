@@ -41,7 +41,7 @@
 *******************************************************************************/
 
 /*Chooce the AHP Frequency*/
-#define AHP_CLOCK_FREQ (8000000UL)
+#define AHP_CLOCK_FREQ (8000000)
 
 /* Choose The Clock Source
 STK_AHB_CLOCK_SOURCE_DIV_8 0x00000000
